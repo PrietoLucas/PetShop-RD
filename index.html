@@ -1,60 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PetShop RD</title>
 </head>
+
 <body>
     <script>
-    const empresa = "RD";
-    console.log("Bem-Vindo ao Pet Shop da "+empresa);
+        const empresa = "RD";
+        console.log("Bem-Vindo ao Pet Shop da " + empresa);
 
-    const pets = [];
+        const pets = [];
 
-    const cadastrarPet = (nome,idade,tipo,raca,dono,cor,peso,vacina,servicos) => {
-        let petNovo = {
-            nome, idade, tipo, raca, dono, cor, peso, vacina, servicos 
+        const cadastrarPet = (nome, idade, tipo, raca, dono, cor, peso, vacina, servicos) => {
+            let petNovo = {
+                nome,
+                idade,
+                tipo,
+                raca,
+                dono,
+                cor,
+                peso,
+                vacina,
+                servicos
             };
-        pets.push(petNovo);
+            pets.push(petNovo);
 
-        console.log("Pet Cadastrado com sucesso!");
+            console.log("Pet Cadastrado com sucesso!");
 
-        return petNovo;
-    };
+            return petNovo;
+        };
 
-    const vacinar = (pets) => {
-        if(pets.vacina){
-            console.log("Animal já está vacinado!")
-        } else {
-            pets.vacina = true;
-            console.log("Animal vacinado!")
+        const vacinar = (pets) => {
+            if (pets.vacina) {
+                console.log("Animal já está vacinado!")
+            } else {
+                pets.vacina = true;
+                console.log("Animal vacinado!")
+            }
+        };
+
+        const exibirPet = () => {
+            pets.forEach((pet, index) => {
+                console.log("--------------Pets da " + empresa + "---------------");
+                console.log("Nome do Pet: " + pet.nome);
+                console.log("Idade do Pet: " + pet.idade);
+                console.log("Tipo: " + pet.tipo);
+                console.log("Raça: " + pet.raca);
+                console.log(pet.vacina ? "Esse pet já foi vacinado!" : "Esse pet não foi vacinado!");
+            });
+        };
+
+        let petsGato = [];
+
+        const exibirGato = () => {
+            pets.forEach((pet, index) => {
+                if (pet.tipo == "Gato") {
+                    petsGato.push(pet)
+                }
+            });
+            return petsGato;
         }
-    };
 
-    const exibirPet = () => {
-        pets.forEach((pet, index) => {
-            console.log("--------------Pets da " +empresa +"---------------");
-            console.log("Nome do Pet: "+ pet.nome);
-            console.log("Idade do Pet: "+ pet.idade);
-            console.log("Tipo: "+ pet.tipo);
-            console.log("Raça: "+ pet.raca);
-            console.log(pet.vacina ? "Esse pet já foi vacinado!" : "Esse pet não foi vacinado!");
-        });
-    };
-
-    let petsGato = [];
-
-    const exibirGato = () => {
-    pets.forEach((pet, index)=>{
-        if(pet.tipo == "Gato"){
-            petsGato.push(pet)
+        // Função filter retorna um array com valor ou vazio que atende o que lhe foi atribuido
+        const filtrarGatos = ()=>{
+            let listaPetsGatos = pets.filter(function(pet, index){
+                return pet.tipo == "Gato"
+            });
+            return listaPetsGatos;
         }
-    });
-    return petsGato;
-    }
 
+        // Função para vacinar utilizando Maps
+
+        const vacinarPets = () => {
+            pets.map(function(pet, index){
+                //vacinar(pet)
+                return pet.vacina = true;
+            })
+        }
     </script>
 </body>
+
 </html>
