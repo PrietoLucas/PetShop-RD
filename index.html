@@ -66,8 +66,8 @@
         }
 
         // Função filter retorna um array com valor ou vazio que atende o que lhe foi atribuido
-        const filtrarGatos = ()=>{
-            let listaPetsGatos = pets.filter(function(pet, index){
+        const filtrarGatos = () => {
+            let listaPetsGatos = pets.filter(function (pet, index) {
                 return pet.tipo == "Gato"
             });
             return listaPetsGatos;
@@ -76,9 +76,9 @@
         // Função para vacinar utilizando Maps
 
         const vacinarPets = () => {
-            pets.map(function(pet, index){
-                //vacinar(pet)
-                return pet.vacina = true;
+            pets.map(function (pet, index) {
+                pet.vacina = true;
+                return pet;
             })
         }
     </script>
