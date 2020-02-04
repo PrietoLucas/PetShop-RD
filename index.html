@@ -9,21 +9,37 @@
 <body>
     <script>
     console.log("Bem-Vindo ao Pet Shop da RD")
-    var dog = {
-        nome:"Junior",
-        idade:8,
-        raca: "Golden",
-        porte: "médio",
-        cor: "branco",
-        peso:15,
-        vacina: false,
-        servicos: "banho"
+
+    var pets = [];
+
+    function cadastrarPet(nome,idade,tipo,raca,dono,cor,peso,vacina,servicos){
+        let petNovo = {
+            nome:nome,
+            idade:idade,
+            tipo:tipo,
+            raca:raca,
+            dono: {
+                nome:null,
+                idade:null
+            },
+            cor:cor,
+            peso:peso,
+            vacina:vacina,
+            servicos:servicos
+        }
+
+        pets.push(petNovo);
+
+        console.log("Pet Cadastrado")
     }
 
-    function vacinar(dog){
-        if(dog.vacina == false){
-            return(dog.vacina = true)
-        } console.log("Cachorro já vacinado!")
+    function vacinar(pets){
+        if(pets.vacina){
+            console.log("Animal já está vacinado!")
+        } else {
+            pets.vacina = true;
+            console.log("Animal vacinado!")
+        }
     }
 
     </script>
