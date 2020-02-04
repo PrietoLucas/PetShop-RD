@@ -8,30 +8,22 @@
 </head>
 <body>
     <script>
-    console.log("Bem-Vindo ao Pet Shop da RD")
+    const empresa = "RD";
+    console.log("Bem-Vindo ao Pet Shop da "+empresa);
 
     var pets = [];
 
     function cadastrarPet(nome,idade,tipo,raca,dono,cor,peso,vacina,servicos){
         let petNovo = {
-            nome:nome,
-            idade:idade,
-            tipo:tipo,
-            raca:raca,
-            dono: {
-                nome:null,
-                idade:null
-            },
-            cor:cor,
-            peso:peso,
-            vacina:vacina,
-            servicos:servicos
-        }
+            nome, idade, tipo, raca, dono, cor, peso, vacina, servicos
+        };
 
         pets.push(petNovo);
 
-        console.log("Pet Cadastrado")
-    }
+        console.log("Pet Cadastrado com sucesso!");
+
+        return petNovo;
+    };
 
     function vacinar(pets){
         if(pets.vacina){
@@ -40,7 +32,18 @@
             pets.vacina = true;
             console.log("Animal vacinado!")
         }
-    }
+    };
+
+    function exibirPet(){
+        for(let i=0; i<pets.length; i++){
+            console.log("--------------Pets da " +empresa +"---------------");
+            console.log("Nome do Pet: "+ pets[i].nome);
+            console.log("Idade do Pet: "+ pets[i].idade);
+            console.log("Tipo: "+ pets[i].tipo);
+            console.log("Raça: "+ pets[i].raca);
+            console.log(pets[i].vacina ? "Esse pet já foi vacinado!" : "Esse pet não foi vacinado!");
+        }
+    };
 
     </script>
 </body>
