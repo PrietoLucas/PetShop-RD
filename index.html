@@ -34,7 +34,7 @@
     };
 
     const exibirPet = () => {
-        pets.forEach((pet, index)=>{
+        pets.forEach((pet, index) => {
             console.log("--------------Pets da " +empresa +"---------------");
             console.log("Nome do Pet: "+ pet.nome);
             console.log("Idade do Pet: "+ pet.idade);
@@ -43,6 +43,17 @@
             console.log(pet.vacina ? "Esse pet já foi vacinado!" : "Esse pet não foi vacinado!");
         });
     };
+
+    let petsGato = [];
+
+    const exibirGato = () => {
+    pets.forEach((pet, index)=>{
+        if(pet.tipo == "Gato"){
+            petsGato.push(pet)
+        }
+    });
+    return petsGato;
+    }
 
     </script>
 </body>
