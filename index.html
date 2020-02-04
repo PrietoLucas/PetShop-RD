@@ -11,13 +11,12 @@
     const empresa = "RD";
     console.log("Bem-Vindo ao Pet Shop da "+empresa);
 
-    var pets = [];
+    const pets = [];
 
-    function cadastrarPet(nome,idade,tipo,raca,dono,cor,peso,vacina,servicos){
+    const cadastrarPet = (nome,idade,tipo,raca,dono,cor,peso,vacina,servicos) => {
         let petNovo = {
-            nome, idade, tipo, raca, dono, cor, peso, vacina, servicos
-        };
-
+            nome, idade, tipo, raca, dono, cor, peso, vacina, servicos 
+            };
         pets.push(petNovo);
 
         console.log("Pet Cadastrado com sucesso!");
@@ -25,7 +24,7 @@
         return petNovo;
     };
 
-    function vacinar(pets){
+    const vacinar = (pets) => {
         if(pets.vacina){
             console.log("Animal já está vacinado!")
         } else {
@@ -34,15 +33,15 @@
         }
     };
 
-    function exibirPet(){
-        for(let i=0; i<pets.length; i++){
+    const exibirPet = () => {
+        pets.forEach((pet, index)=>{
             console.log("--------------Pets da " +empresa +"---------------");
-            console.log("Nome do Pet: "+ pets[i].nome);
-            console.log("Idade do Pet: "+ pets[i].idade);
-            console.log("Tipo: "+ pets[i].tipo);
-            console.log("Raça: "+ pets[i].raca);
-            console.log(pets[i].vacina ? "Esse pet já foi vacinado!" : "Esse pet não foi vacinado!");
-        }
+            console.log("Nome do Pet: "+ pet.nome);
+            console.log("Idade do Pet: "+ pet.idade);
+            console.log("Tipo: "+ pet.tipo);
+            console.log("Raça: "+ pet.raca);
+            console.log(pet.vacina ? "Esse pet já foi vacinado!" : "Esse pet não foi vacinado!");
+        });
     };
 
     </script>
